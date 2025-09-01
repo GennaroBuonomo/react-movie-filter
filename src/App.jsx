@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const initialGenders =[
+const initialFilms =[
    { title: 'Inception', genre: 'Fantascienza' },
    { title: 'Il Padrino', genre: 'Thriller' },
    { title: 'Titanic', genre: 'Romantico' },
@@ -10,6 +10,18 @@ const initialGenders =[
  ]
 function App() {
    const [newFilm, setNewFilm] = useState('');
+   const [genre, setGenre] = useState("")
+   const [filteredFilms, setFilteredFilms] = useState(initialFilms);
+
+   useEffect(() => {
+    if(genre === '') {
+      setFilteredFilms(initialFilms)
+    } else {
+      setFilteredFilms(
+        initialFilms.filter((film) => film.genre === genre)
+      );
+    }
+   }, [genre]);
 
    const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +36,7 @@ function App() {
             <h1 className="mb-3">Lista generi di film</h1>
             <div className="col-12">
               <ul className="list-unstyled list-group ms-0">
-                {initialGenders.map((film,index) => {
+                {filteredFilms.map((film,index) => {
                   return (
                   <li className="list-group-item" key={index}>
                     {film.title} - {film.genre}
@@ -48,14 +60,18 @@ function App() {
               </form>
             </div>
             <div className="col-4 mt-4">
-              <select class="form-select" aria-label="Default select example">
-               <option selected>Filtra per genere:</option>
-                <option>Fantascienza</option>
-                <option>Thriller</option>
-                <option>Romantico</option>
-                <option>Azione</option>
-                <option>Fantascienza</option>
-                <option>Thriller</option>
+              <select 
+              className="form-select"
+              value={genre}
+              onChange={(e) => setGenre(e.target.value)}
+              >
+                <option value="">Filtra per genere:</option>
+                <option value="Fantascienza">Fantascienza</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Romantico">Romantico</option>
+                <option value="Azione">Azione</option>
+                <option value="Fantascienza">Fantascienza</option>
+                <option value="Thriller">Thriller</option>
               </select>
            </div>
           </div>
