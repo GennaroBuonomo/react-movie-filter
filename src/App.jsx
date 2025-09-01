@@ -10,7 +10,16 @@ function App() {
   return (
     <>
       <div className="container">
-        
+        <div className="row">
+          <div className="col-12 gy-3">
+            <h1>Lista generi di film</h1>
+            <div className="col-12">
+              <ul className="list-unstyled list group ms-0">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
