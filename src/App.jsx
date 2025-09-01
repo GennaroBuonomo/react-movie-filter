@@ -1,4 +1,4 @@
-const initialgenders =[
+const initialGenders =[
    { title: 'Inception', genre: 'Fantascienza' },
    { title: 'Il Padrino', genre: 'Thriller' },
    { title: 'Titanic', genre: 'Romantico' },
@@ -15,8 +15,24 @@ function App() {
             <h1>Lista generi di film</h1>
             <div className="col-12">
               <ul className="list-unstyled list group ms-0">
-                
+                {initialGenders.map((film,index) => {
+                  return (
+                  <li className="list-group-item" key={index}>
+                    {film.title} - {film.genre}
+                  </li>
+                  );
+                })}
               </ul>
+            </div>
+            <div className="col-12">
+              <form className="mt-4">
+                <div className="d-flex">
+                  <input 
+                  type="text"
+                  
+                   />
+                </div>
+              </form>
             </div>
           </div>
         </div>
