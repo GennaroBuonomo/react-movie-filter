@@ -12,9 +12,9 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-12 gy-3">
-            <h1>Lista generi di film</h1>
+            <h1 className="mb-3">Lista generi di film</h1>
             <div className="col-12">
-              <ul className="list-unstyled list group ms-0">
+              <ul className="list-unstyled list-group ms-0">
                 {initialGenders.map((film,index) => {
                   return (
                   <li className="list-group-item" key={index}>
@@ -29,8 +29,10 @@ function App() {
                 <div className="d-flex">
                   <input 
                   type="text"
-                  
+                  className="form-control me-2"
+                  placeholder="Inserisci un titolo"                  
                    />
+                   <button className="btn btn-success">Inserisci</button>
                 </div>
               </form>
             </div>
