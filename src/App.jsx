@@ -39,7 +39,7 @@ function App() {
                 {filteredFilms.map((film,index) => {
                   return (
                   <li className="list-group-item" key={index}>
-                    {film.title} - {film.genre}
+                    {film.title}
                   </li>
                   );
                 })}
